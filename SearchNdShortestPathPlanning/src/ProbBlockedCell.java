@@ -1,0 +1,26 @@
+import java.util.Random;
+
+public class ProbBlockedCell {
+	
+	public static void blockCells(String[][] grid, double probability) {
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid.length; j++) {
+				if (i+j != 0) {
+					if (i+j != ((grid.length-1)+(grid.length-1))) {
+						if (randomGen() <= probability) {
+							grid[i][j] = "B";
+						} 
+					}
+				}
+				System.out.print(grid[i][j] + "   ");
+			}
+			System.out.println();
+		}
+	}
+
+	public static double randomGen() {
+		double probability = Math.random();
+		return probability;
+	}
+	
+}
