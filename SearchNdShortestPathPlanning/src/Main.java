@@ -15,6 +15,14 @@ public class Main {
 		
 		System.out.println("Now, enter a p value... (0.0 < p < 1.0)");
 		double ans = input.nextDouble();
-		ProbBlockedCell.blockCells(grid, ans);
+		grid = ProbBlockedCell.blockCells(grid, ans);
+		
+		System.out.println("Choose a search method...   (DFS, BFS, A*Euc, A*Man)");
+		String response = input.next();
+		if (response.equals("DFS")) {
+			DFSgraph.DFSsearch(grid,0,0);
+		} else {
+			System.out.println("you suck!");
+		}
 	}
 }

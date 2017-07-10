@@ -6,10 +6,10 @@ public class Grid {
 	
 	public static void makeGrid(String[][] grid, int cellNumber) {
 		
-		for (int i = 0; i < cellNumber; i++) {
-			for (int j = 0; j < cellNumber; j++) {
-				grid[i][j] = "0";
-				System.out.print(grid[i][j] + "   ");
+		for (int row = 0; row < cellNumber; row++) {
+			for (int col = 0; col < cellNumber; col++) {
+				grid[row][col] = "0";
+				System.out.print(grid[row][col] + "   ");
 			}
 			System.out.println();
 		}

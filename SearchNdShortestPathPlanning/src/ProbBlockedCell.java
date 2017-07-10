@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class ProbBlockedCell {
 	
-	public static void blockCells(String[][] grid, double probability) {
+	public static String[][] blockCells(String[][] grid, double probability) {
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid.length; j++) {
 				if (i+j != 0) {
@@ -16,6 +16,7 @@ public class ProbBlockedCell {
 			}
 			System.out.println();
 		}
+		return grid;
 	}
 
 	public static double randomGen() {
