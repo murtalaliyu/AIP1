@@ -6,6 +6,9 @@
 import java.util.Scanner;
 
 public class Main {
+	
+	
+	
 
 	public static void main(String[] args) {
 		
@@ -16,9 +19,10 @@ public class Main {
 				
 		Node[][] grid = new Node[answer][answer];
 		Grid.makeGrid(grid);
+		
 		System.out.println();
 		
-		/*System.out.println("Now, enter a p value... (0.0 < p < 1.0)");
+		System.out.println("Now, enter a p value... (0.0 < p < 1.0)");
 		double ans = input.nextDouble();
 		grid = ProbBlockedCell.blockCells(grid, ans, answer);
 		
@@ -28,6 +32,6 @@ public class Main {
 			DFSgraph.DFSsearch(grid,answer);
 		} else {
 			System.out.println("you suck!");
-		}*/
+		}
 	}
 }

@@ -14,9 +14,8 @@ public class DFSgraph {
 	static List visited = new ArrayList<Integer>();
 
 	public static void DFSsearch(Node[][] grid, int length) {
-		
 		//boolean hey = visited.contains("1"); <---- this works, not needed for now
-		//System.out.println(grid.serialNo);
+		System.out.println(grid[1][2].serialNo);
 		
 	}
 	
