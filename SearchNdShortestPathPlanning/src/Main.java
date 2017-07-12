@@ -9,11 +9,11 @@ public class Main {
 		System.out.println("Enter size of grid... (INTEGERS ONLY!!!)");
 		answer = input.nextInt();
 				
-		String[][] grid = new String[answer][answer];
+		Node grid = new Node(0, "");
 		Grid.makeGrid(grid, answer);
 		System.out.println();
 		
-		System.out.println("Now, enter a p value... (0.0 < p < 1.0)");
+		/*System.out.println("Now, enter a p value... (0.0 < p < 1.0)");
 		double ans = input.nextDouble();
 		grid = ProbBlockedCell.blockCells(grid, ans);
 		
@@ -23,6 +23,6 @@ public class Main {
 			DFSgraph.DFSsearch(grid,0,0);
 		} else {
 			System.out.println("you suck!");
-		}
+		}*/
 	}
 }
