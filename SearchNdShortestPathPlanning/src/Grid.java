@@ -1,17 +1,16 @@
 
 public class Grid {
 
-	public static void makeGrid(Node grid, int cellNumber) {
+	public static void makeGrid(Node[][] grid) {
 		int sum = 0;
-		for (int row = 0; row < cellNumber; row++) {
-			for (int col = 0; col < cellNumber; col++) {
-				grid.serialNo = row+col+sum;
-				grid.status = "0";
-				System.out.print(grid.serialNo + "   ");
+		for (int row = 0; row < grid.length; row++) {
+			for (int col = 0; col < grid.length; col++) {
+				grid[row][col].serialNo = row+col+sum;
+				grid[row][col].status = "0";
+				System.out.print(grid[row][col].serialNo + "   ");
 			}
-			sum += cellNumber-1;
+			sum += grid.length-1;
 			System.out.println();
 		}
-		
 	}
 }
