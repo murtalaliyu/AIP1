@@ -2,17 +2,17 @@ import java.util.Random;
 
 public class ProbBlockedCell {
 	
-	public static String[][] blockCells(String[][] grid, double probability) {
-		for (int i = 0; i < grid.length; i++) {
-			for (int j = 0; j < grid.length; j++) {
+	public static Node blockCells(Node grid, double probability, int length) {
+		for (int i = 0; i < length; i++) {
+			for (int j = 0; j < length; j++) {
 				if (i+j != 0) {
-					if (i+j != ((grid.length-1)+(grid.length-1))) {
-						if (randomGen() <= probability) {
-							grid[i][j] = "B";
+					if (i*j != ((length-1)*(length-1))) {
+						if (randomGen() <= probability) {	
+							grid.status = "B";
 						} 
 					}
 				}
-				System.out.print(grid[i][j] + "   ");
+				System.out.print(grid.status + "   ");
 			}
 			System.out.println();
 		}
