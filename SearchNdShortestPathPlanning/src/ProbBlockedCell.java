@@ -13,8 +13,6 @@ public class ProbBlockedCell {
 					}
 				}
 				System.out.print(grid[i][j].status + "   ");
-				//System.out.println(i+j);
-				//System.out.println((length-1)+(length-1));
 			}
 			System.out.println();
 		}

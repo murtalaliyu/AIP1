@@ -1,11 +1,13 @@
 
 public class Node {
 
-	int serialNo;
+	int first;
+	int second;
 	String status;
 	
-	public Node(int serialNo, String status) {
-		this.serialNo = serialNo;
+	public Node(int first, int second, String status) {
+		this.first = first;
+		this.second = second;
 		this.status = status;
 	}
 }
