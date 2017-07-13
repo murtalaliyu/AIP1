@@ -62,11 +62,12 @@ public class DFSgraph {
 					}
 				}
 			}
+			
 			//pop stack and call dfs on node
 			if (stack.empty() != true) {
 				grid = DFSsearch(grid,(Node)stack.pop());
 			}
-		} while (!stack.empty());
+		} while (stack.empty() == false);
 		
 		return grid;
 	}

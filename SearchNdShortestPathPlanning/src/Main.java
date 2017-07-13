@@ -24,12 +24,12 @@ public class Main {
 		
 		System.out.println("Now, enter a p value... (0.0 < p < 1.0)");
 		double ans = input.nextDouble();
-		grid = ProbBlockedCell.blockCells(grid, ans, answer);
+		grid = ProbBlockedCell.blockCells(grid, ans);
 		
-		System.out.println("Choose a search method...   (DFS, BFS, A*Euc, A*Man)");
+		System.out.println("Choose a search method...   (dfs, bfs, a*Euc, a*man)");
 		String response = input.next();
 		
-		if (response.equals("DFS")) {
+		if (response.equals("dfs")) {
 			Node node = new Node(grid[0][0].first, grid[0][0].second, grid[0][0].status);
 			grid = DFSgraph.DFSsearch(grid,node);
 			for (int i = 0; i < grid.length; i++) { 
@@ -38,8 +38,14 @@ public class Main {
 				}
 				System.out.println();
 			}
+		} else if (response.equals("bfs")) {
+			
+		} else if (response.equals("a*euc")) {
+			
+		} else if (response.equals("a*man")) {
+			
 		} else {
-			System.out.println("you suck!");
+			System.out.println("booo");
 		}
 	}
 }

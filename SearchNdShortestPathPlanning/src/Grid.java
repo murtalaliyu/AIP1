@@ -1,4 +1,3 @@
-
 public class Grid {
 
 	public static Node[][] makeGrid(Node[][] grid) {
