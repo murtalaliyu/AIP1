@@ -8,7 +8,12 @@ public class DFSgraph {
 
 	public static Node[][] DFSsearch(Node[][] grid, Node node) {
 		
-		do {
+		if (node.first*node.second == (grid.length-1)*(grid.length-1)) {
+			grid[node.first][node.second].status = "1";
+			return grid;
+		}
+		
+		//do {
 			visited.add(node);
 			grid[node.first][node.second].status = "1";
 			
@@ -64,10 +69,10 @@ public class DFSgraph {
 			}
 			
 			//pop stack and call dfs on node
-			if (stack.empty() != true) {
+			for (int i = 0; i < stack.size(); i++) {
 				grid = DFSsearch(grid,(Node)stack.pop());
 			}
-		} while (stack.empty() == false);
+		//} while (stack.empty() == false);
 		
 		return grid;
 	}
