@@ -16,7 +16,6 @@ public class ProbBlockedCell {
 			}
 			System.out.println();
 		}
-		
 		return grid;
 	}
 

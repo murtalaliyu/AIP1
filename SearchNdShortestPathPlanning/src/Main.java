@@ -38,6 +38,7 @@ public class Main {
 				}
 				System.out.println();
 			}
+			System.out.print("Done!");
 		} else if (response.equals("bfs")) {
 			
 		} else if (response.equals("a*euc")) {
