@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Stack;
+import java.util.*;
 
 public class DFSgraph {
 
@@ -8,17 +7,18 @@ public class DFSgraph {
 
 	public static Node[][] DFSsearch(Node[][] grid, Node node) {
 		
-		if (node.status == "G") {
+		if (node.status.equals("G")) {
+			System.out.print("Goal found!!!");
 			return grid;
 		}
 		
 		visited.add(node);
 		grid[node.first][node.second].status = "1";
-		System.out.println();
-		System.out.println();
-		System.out.println(grid[node.first][node.second].first + "," + grid[node.first][node.second].second + " has been added to the path. now searching for its neighbors");
 		
+		System.out.println();
+		System.out.println();
 		//print updated path
+		System.out.println(grid[node.first][node.second].first + "," + grid[node.first][node.second].second + " has been added to the path. now searching for its neighbors");
 		System.out.println("updated path:");
 		for (int i = 0; i < grid.length; i++) { 
 			for (int j = 0; j < grid.length; j++) {
@@ -31,12 +31,15 @@ public class DFSgraph {
 		int x = node.first;
 		int y = node.second;
 		Node newNeighbor = new Node(0,0,"0");
+		Node newNeighbor2 = new Node(0,0,"0");
+		Node newNeighbor3 = new Node(0,0,"0");
+		Node newNeighbor4 = new Node(0,0,"0");
 		Object object = new Object();
 		
 		object = y-1;
-		if (object instanceof Integer == true) {
+		if (object instanceof Integer) {
 			if ((int)object != -1) {
-				if (grid[x][(int)object].status == "0") {
+				if (grid[x][(int)object].status.equals("0") || grid[x][(int)object].status.equals("G")) {
 					newNeighbor.first = x;
 					newNeighbor.second = (int)object;
 					newNeighbor.status = grid[x][(int)object].status;
@@ -44,47 +47,41 @@ public class DFSgraph {
 					System.out.println("left is a neighbor. " + newNeighbor.first + "," + newNeighbor.second + " has been pushed to stack, now first to be popped: ");
 					
 					System.out.println("content of stack");
-					//Node n = new Node(0,0,"0");
 					for (int i = 0; i < stack.size(); i++) {
-						//n = (Node) stack.elementAt(i);
 						System.out.println(stack.get(i).first + "," + stack.get(i).second);
 					}
 				}
 			}
 		} 
-		object = y+1;
+		object = x-1;
 		if (object instanceof Integer == true) {
-			if ((int)object != grid.length) {
-				if (grid[x][(int)object].status == "0") {
-					newNeighbor.first = x;
-					newNeighbor.second = (int)object;
-					newNeighbor.status = grid[x][(int)object].status;
-					stack.push(newNeighbor);
-					System.out.println("right is a neighbor. " + newNeighbor.first + "," + newNeighbor.second + " has been pushed to stack, now first to be popped: ");
-					
+			if ((int)object != -1) { 
+				if (grid[(int)object][y].status.equals("0") || grid[(int)object][y].status.equals("G")) {
+					newNeighbor3.first = (int)object;
+					newNeighbor3.second = y;
+					newNeighbor3.status = grid[(int)object][y].status;
+					stack.push(newNeighbor3);
+					System.out.println("top is a neighbor. " + newNeighbor3.first + "," + newNeighbor3.second + " has been pushed to stack, now first to be popped: ");
+				
 					System.out.println("content of stack");
-					//Node n = new Node(0,0,"0");
 					for (int i = 0; i < stack.size(); i++) {
-						//n = (Node) stack.elementAt(i);
 						System.out.println(stack.get(i).first + "," + stack.get(i).second);
 					}
 				}
 			}
 		}
-		object = x-1;
+		object = y+1;
 		if (object instanceof Integer == true) {
-			if ((int)object != -1) { 
-				if (grid[(int)object][y].status == "0") {
-					newNeighbor.first = (int)object;
-					newNeighbor.second = y;
-					newNeighbor.status = grid[(int)object][y].status;
-					stack.push(newNeighbor);
-					System.out.println("top is a neighbor. " + newNeighbor.first + "," + newNeighbor.second + " has been pushed to stack, now first to be popped: ");
-					
+			if ((int)object != grid.length) {
+				if (grid[x][(int)object].status.equals("0") || grid[x][(int)object].status.equals("G")) {
+					newNeighbor2.first = x;
+					newNeighbor2.second = (int)object;
+					newNeighbor2.status = grid[x][(int)object].status;
+					stack.push(newNeighbor2);
+					System.out.println("right is a neighbor. " + newNeighbor2.first + "," + newNeighbor2.second + " has been pushed to stack, now first to be popped: ");
+				
 					System.out.println("content of stack");
-					//Node n = new Node(0,0,"0");
 					for (int i = 0; i < stack.size(); i++) {
-						//n = (Node) stack.elementAt(i);
 						System.out.println(stack.get(i).first + "," + stack.get(i).second);
 					}
 				}
@@ -93,28 +90,35 @@ public class DFSgraph {
 		object = x+1;
 		if (object instanceof Integer == true) {
 			if ((int)object != grid.length) {
-				if (grid[(int)object][y].status == "0") {
-					newNeighbor.first = (int)object;
-					newNeighbor.second = y;
-					newNeighbor.status = grid[(int)object][y].status;
-					stack.push(newNeighbor);
-					System.out.println("bottom is a neighbor. " + newNeighbor.first + "," + newNeighbor.second + " has been pushed to stack, now first to be popped: ");
-					
+				if (grid[(int)object][y].status.equals("0") || grid[(int)object][y].status.equals("G")) {
+					newNeighbor4.first = (int)object;
+					newNeighbor4.second = y;
+					newNeighbor4.status = grid[(int)object][y].status;
+					stack.push(newNeighbor4);
+					System.out.println("bottom is a neighbor. " + newNeighbor4.first + "," + newNeighbor4.second + " has been pushed to stack, now first to be popped: ");
+				
 					System.out.println("content of stack");
-					//Node n = new Node(0,0,"0");
 					for (int i = 0; i < stack.size(); i++) {
-						//n = (Node) stack.elementAt(i);
 						System.out.println(stack.get(i).first + "," + stack.get(i).second);
 					}
 				}
 			}
 		}
 		
+		System.out.println("content of stack after checking for each neighbor:");
+		for (int i = 0; i < stack.size(); i++) {
+			System.out.println(stack.get(i).first + "," + stack.get(i).second);
+		}
+		
 		System.out.println();
 		
 		//pop stack and call dfs on node
 		for (int i = 0; i < stack.size(); i++) {
-			System.out.println(stack.elementAt(0).first + "," + stack.elementAt(0).second + " is about to be popped");
+			if (stack.peek().status.equals(("G"))) {
+				System.out.println("Goal found!!!");
+				return grid;
+			}
+			System.out.println(stack.peek().first + "," + stack.peek().second + " is about to be popped");
 			grid = DFSsearch(grid,(Node)stack.pop());
 		}
 		
