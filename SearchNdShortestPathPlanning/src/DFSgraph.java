@@ -15,17 +15,13 @@ public class DFSgraph {
 		visited.add(node);
 		grid[node.first][node.second].status = "1";
 		
-		System.out.println();
+		/*System.out.println();
 		System.out.println();
 		//print updated path
 		System.out.println(grid[node.first][node.second].first + "," + grid[node.first][node.second].second + " has been added to the path. now searching for its neighbors");
 		System.out.println("updated path:");
-		for (int i = 0; i < grid.length; i++) { 
-			for (int j = 0; j < grid.length; j++) {
-				System.out.print(grid[i][j].status + "   ");
-			}
-			System.out.println();
-		}
+		printGrid.printGrid(grid);
+		}*/
 		
 		//get this node's neighbors and add to stack
 		int x = node.first;
@@ -44,12 +40,12 @@ public class DFSgraph {
 					newNeighbor.second = (int)object;
 					newNeighbor.status = grid[x][(int)object].status;
 					stack.push(newNeighbor);
-					System.out.println("left is a neighbor. " + newNeighbor.first + "," + newNeighbor.second + " has been pushed to stack, now first to be popped: ");
+					/*System.out.println("left is a neighbor. " + newNeighbor.first + "," + newNeighbor.second + " has been pushed to stack, now first to be popped: ");
 					
 					System.out.println("content of stack");
 					for (int i = 0; i < stack.size(); i++) {
 						System.out.println(stack.get(i).first + "," + stack.get(i).second);
-					}
+					}*/
 				}
 			}
 		} 
@@ -61,12 +57,12 @@ public class DFSgraph {
 					newNeighbor3.second = y;
 					newNeighbor3.status = grid[(int)object][y].status;
 					stack.push(newNeighbor3);
-					System.out.println("top is a neighbor. " + newNeighbor3.first + "," + newNeighbor3.second + " has been pushed to stack, now first to be popped: ");
+					/*System.out.println("top is a neighbor. " + newNeighbor3.first + "," + newNeighbor3.second + " has been pushed to stack, now first to be popped: ");
 				
 					System.out.println("content of stack");
 					for (int i = 0; i < stack.size(); i++) {
 						System.out.println(stack.get(i).first + "," + stack.get(i).second);
-					}
+					}*/
 				}
 			}
 		}
@@ -78,12 +74,12 @@ public class DFSgraph {
 					newNeighbor2.second = (int)object;
 					newNeighbor2.status = grid[x][(int)object].status;
 					stack.push(newNeighbor2);
-					System.out.println("right is a neighbor. " + newNeighbor2.first + "," + newNeighbor2.second + " has been pushed to stack, now first to be popped: ");
+					/*System.out.println("right is a neighbor. " + newNeighbor2.first + "," + newNeighbor2.second + " has been pushed to stack, now first to be popped: ");
 				
 					System.out.println("content of stack");
 					for (int i = 0; i < stack.size(); i++) {
 						System.out.println(stack.get(i).first + "," + stack.get(i).second);
-					}
+					}*/
 				}
 			}
 		}
@@ -95,31 +91,40 @@ public class DFSgraph {
 					newNeighbor4.second = y;
 					newNeighbor4.status = grid[(int)object][y].status;
 					stack.push(newNeighbor4);
-					System.out.println("bottom is a neighbor. " + newNeighbor4.first + "," + newNeighbor4.second + " has been pushed to stack, now first to be popped: ");
+					/*System.out.println("bottom is a neighbor. " + newNeighbor4.first + "," + newNeighbor4.second + " has been pushed to stack, now first to be popped: ");
 				
 					System.out.println("content of stack");
 					for (int i = 0; i < stack.size(); i++) {
 						System.out.println(stack.get(i).first + "," + stack.get(i).second);
-					}
+					}*/
 				}
 			}
 		}
 		
-		System.out.println("content of stack after checking for each neighbor:");
+		/*System.out.println("content of stack after checking for each neighbor:");
 		for (int i = 0; i < stack.size(); i++) {
 			System.out.println(stack.get(i).first + "," + stack.get(i).second);
+		}*/
+		
+		if (stack.size() == 0) {
+			//for (int i = 0; i < 20; i++) {
+				System.out.println("Path not found!!!");
+			//}
+		} else if (stack.peek().status.equals("G")) {
+			printGrid.printGrid(grid);
+			System.out.println("Path found!!!");
 		}
 		
-		System.out.println();
+		//System.out.println();
 		
 		//pop stack and call dfs on node
 		for (int i = 0; i < stack.size(); i++) {
 			if (stack.peek().status.equals(("G"))) {
-				System.out.println("Goal found!!!");
+				//System.out.println("Path found!!!");
 		//probably can change this^^^ to help us print out a path
 				return grid;
 			}
-			System.out.println(stack.peek().first + "," + stack.peek().second + " is about to be popped");
+			//System.out.println(stack.peek().first + "," + stack.peek().second + " is about to be popped");
 			grid = DFSsearch(grid,(Node)stack.pop());
 		}
 		
