@@ -8,7 +8,7 @@ public class DFSgraph {
 	public static Node[][] DFSsearch(Node[][] grid, Node node) {
 		
 		if (node.status.equals("G")) {
-			System.out.print("Goal found!!!");
+			System.out.println("Goal found!!!");
 			return grid;
 		}
 		
@@ -111,7 +111,7 @@ public class DFSgraph {
 				System.out.println("Path not found!!!");
 			//}
 		} else if (stack.peek().status.equals("G")) {
-			printGrid.printGrid(grid);
+			//printGrid.printGrid(grid);
 			System.out.println("Path found!!!");
 		}
 		

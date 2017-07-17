@@ -1,15 +1,11 @@
 /* Errors
- * 1. Goal node should be "0" (ProbBlockedCell.blockCells)
- * 2. Grid showing null pointer exception (Grid.makeGrid)
+ * 
  */
 
 import java.util.Scanner;
 
 public class Main {
 	
-	
-	
-
 	public static void main(String[] args) {
 		
 		Scanner input = new Scanner(System.in);
@@ -33,7 +29,7 @@ public class Main {
 		
 		if (response.equals("dfs")) {
 			grid = DFSgraph.DFSsearch(grid,node);
-			//printGrid.printGrid(grid);
+			printGrid.printGrid(grid);
 			
 		} else if (response.equals("bfs")) {
 			grid = BFSgraph.BFSsearch(grid, node);
@@ -46,6 +42,8 @@ public class Main {
 		} else if (response.equals("a*")) {
 			grid = Astar.Astar(grid,node);
 			printGrid.printGrid(grid);
+			
+			System.out.println(Astar.getGofN(grid[0][0], grid[2][2]));
 			
 		} else {
 			System.out.println("booo");

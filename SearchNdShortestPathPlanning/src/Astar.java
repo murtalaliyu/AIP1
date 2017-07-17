@@ -13,19 +13,17 @@ public class Astar {
 	
 	public static Node[][] Astar(Node[][] grid, Node node) {
 		
-		
-		
 		return grid;
 	}
 	
 	public static double getGofN(Node startNode, Node n) {
 		
-		double gOfn = n.first + n.second;
+		double gOfn = (n.first + n.second) - (startNode.first + startNode.second);
 		
 		return gOfn;
 	}
 	
-	public static double getHeuristic(Node n, Node goalNode) {
+	public static double getHofN(Node n, Node goalNode) {
 		
 		double hOfn = 0;
 		

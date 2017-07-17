@@ -12,9 +12,9 @@ public class ProbBlockedCell {
 						} 
 					}
 				}
-				System.out.print(grid[i][j].status + "   ");
+				//System.out.print(grid[i][j].status + "   ");
 			}
-			System.out.println();
+			//System.out.println();
 		}
 		return grid;
 	}

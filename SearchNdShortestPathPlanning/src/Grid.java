@@ -12,7 +12,7 @@ public class Grid {
 					node.second = j;
 					node.status = "G";
 					grid[i][j] = node;
-					System.out.print(node.status + "   ");
+					//System.out.print(node.status + "   ");
                 }
 				else {	
 				node = new Node(0,0,"0");
@@ -21,11 +21,11 @@ public class Grid {
 				node.status = "0";
 				grid[i][j] = node;
 				//System.out.print(node.first + "," + node.second + "   ");
-				System.out.print(node.status + "   ");
+				//System.out.print(node.status + "   ");
 				}
 			}
 			sum += grid.length-1;
-			System.out.println();
+			//System.out.println();
 		}
 		return grid;
 	}
