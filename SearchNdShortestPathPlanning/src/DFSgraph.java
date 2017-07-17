@@ -116,6 +116,7 @@ public class DFSgraph {
 		for (int i = 0; i < stack.size(); i++) {
 			if (stack.peek().status.equals(("G"))) {
 				System.out.println("Goal found!!!");
+		//probably can change this^^^ to help us print out a path
 				return grid;
 			}
 			System.out.println(stack.peek().first + "," + stack.peek().second + " is about to be popped");
