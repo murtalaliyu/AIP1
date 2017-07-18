@@ -34,10 +34,10 @@ public class BFSgraph {
 		//get this node's neighbors and add to stack
 		int x = node.first;
 		int y = node.second;
-		Node newNeighbor = new Node(0,0,"0",0);
-		Node newNeighbor2 = new Node(0,0,"0",0);
-		Node newNeighbor3 = new Node(0,0,"0",0);
-		Node newNeighbor4 = new Node(0,0,"0",0);
+		Node newNeighbor = new Node(0,0,"0",0,0);
+		Node newNeighbor2 = new Node(0,0,"0",0,0);
+		Node newNeighbor3 = new Node(0,0,"0",0,0);
+		Node newNeighbor4 = new Node(0,0,"0",0,0);
 		Object object = new Object();
 		
 		object = y-1;

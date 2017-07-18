@@ -25,7 +25,7 @@ public class Main {
 		System.out.println("Choose a search method...   (dfs, bfs, a*, a*euc, a*man)");
 		String response = input.next();
 	
-		Node node = new Node(grid[0][0].first, grid[0][0].second, grid[0][0].status, 0);
+		Node node = new Node(grid[0][0].first, grid[0][0].second, grid[0][0].status, 0,0);
 		
 		if (response.equals("dfs")) {
 			grid = DFSgraph.DFSsearch(grid,node);

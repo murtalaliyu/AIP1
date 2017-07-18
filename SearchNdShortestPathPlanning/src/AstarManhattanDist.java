@@ -31,10 +31,10 @@ public class AstarManhattanDist {
 		//get this node's neighbors and add to stack
 		int x = node.first;
 		int y = node.second;
-		Node newNeighbor = new Node(0,0,"0",0);
-		Node newNeighbor2 = new Node(0,0,"0",0);
-		Node newNeighbor3 = new Node(0,0,"0",0);
-		Node newNeighbor4 = new Node(0,0,"0",0);
+		Node newNeighbor = new Node(0,0,"0",0,0);
+		Node newNeighbor2 = new Node(0,0,"0",0,0);
+		Node newNeighbor3 = new Node(0,0,"0",0,0);
+		Node newNeighbor4 = new Node(0,0,"0",0,0);
 		Object object = new Object();
 		
 		object = y-1;
@@ -45,7 +45,8 @@ public class AstarManhattanDist {
 					newNeighbor.second = (int)object;
 					newNeighbor.status = grid[x][(int)object].status;
 					if (Contains.contains(queue,newNeighbor) == false) {
-						double gOfn = Astar.getGofN(grid[0][0], newNeighbor);
+						newNeighbor.GofN = newNeighbor.GofN + 1;
+						double gOfn = newNeighbor.GofN;
 						double hOfn = getHeuristic(newNeighbor, grid[grid.length-1][grid.length-1]);
 						double fOfn = Astar.getFofN(gOfn, hOfn);
 						newNeighbor.FofN = fOfn;
@@ -68,7 +69,8 @@ public class AstarManhattanDist {
 					newNeighbor3.second = y;
 					newNeighbor3.status = grid[(int)object][y].status;
 					if (Contains.contains(queue,newNeighbor3) == false) {
-						double gOfn = Astar.getGofN(grid[0][0], newNeighbor3);
+						newNeighbor3.GofN = newNeighbor3.GofN + 1;
+						double gOfn = newNeighbor3.GofN;
 						double hOfn = getHeuristic(newNeighbor3, grid[grid.length-1][grid.length-1]);
 						double fOfn = Astar.getFofN(gOfn, hOfn);
 						newNeighbor.FofN = fOfn;
@@ -91,7 +93,8 @@ public class AstarManhattanDist {
 					newNeighbor2.second = (int)object;
 					newNeighbor2.status = grid[x][(int)object].status;
 					if (Contains.contains(queue,newNeighbor2) == false) {
-						double gOfn = Astar.getGofN(grid[0][0], newNeighbor2);
+						newNeighbor2.GofN = newNeighbor2.GofN + 1;
+						double gOfn = newNeighbor2.GofN;
 						double hOfn = getHeuristic(newNeighbor2, grid[grid.length-1][grid.length-1]);
 						double fOfn = Astar.getFofN(gOfn, hOfn);
 						newNeighbor2.FofN = fOfn;
@@ -114,7 +117,8 @@ public class AstarManhattanDist {
 					newNeighbor4.second = y;
 					newNeighbor4.status = grid[(int)object][y].status;
 					if (Contains.contains(queue,newNeighbor4) == false) {
-						double gOfn = Astar.getGofN(grid[0][0], newNeighbor4);
+						newNeighbor4.GofN = newNeighbor4.GofN + 1;
+						double gOfn = newNeighbor4.GofN;
 						double hOfn = getHeuristic(newNeighbor4, grid[grid.length-1][grid.length-1]);
 						double fOfn = Astar.getFofN(gOfn, hOfn);
 						newNeighbor4.FofN = fOfn;
@@ -138,7 +142,7 @@ public class AstarManhattanDist {
 		System.out.println();
 		
 		//pop queue and call bfs on node
-		Node newNode = new Node(0,0,"0",1000);
+		Node newNode = new Node(0,0,"0",1000,0);
 		int temp = 0;
 		for (int j = 0; j < queue.size(); j++) {  
 			if (queue.get(j).FofN < newNode.FofN) {
