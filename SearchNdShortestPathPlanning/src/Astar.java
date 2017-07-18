@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Astar {
 
 	double fOfn = 0.0;
@@ -8,26 +6,11 @@ public class Astar {
 	
 	int v_h_cost = 1;
 	
-	ArrayList<Node> openList = new ArrayList<Node>();
-	ArrayList<Node> closedList = new ArrayList<Node>();
-	
-	public static Node[][] Astar(Node[][] grid, Node node) {
-		
-		return grid;
-	}
-	
 	public static double getGofN(Node startNode, Node n) {
 		
-		double gOfn = (n.first + n.second) - (startNode.first + startNode.second);
+		double gOfn = Math.sqrt(((startNode.first - n.first)*(startNode.first - n.first)) + ((startNode.second - n.second)*(startNode.second - n.second)));
 		
 		return gOfn;
-	}
-	
-	public static double getHofN(Node n, Node goalNode) {
-		
-		double hOfn = 0;
-		
-		return hOfn;
 	}
 	
 	public static double getFofN(double gOfn, double hOfn) {

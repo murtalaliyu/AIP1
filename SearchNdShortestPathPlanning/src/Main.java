@@ -22,10 +22,10 @@ public class Main {
 		double ans = input.nextDouble();
 		grid = ProbBlockedCell.blockCells(grid, ans);
 		
-		System.out.println("Choose a search method...   (dfs, bfs, a*, a*Euc, a*man)");
+		System.out.println("Choose a search method...   (dfs, bfs, a*, a*euc, a*man)");
 		String response = input.next();
 	
-		Node node = new Node(grid[0][0].first, grid[0][0].second, grid[0][0].status);
+		Node node = new Node(grid[0][0].first, grid[0][0].second, grid[0][0].status, 0);
 		
 		if (response.equals("dfs")) {
 			grid = DFSgraph.DFSsearch(grid,node);
@@ -36,14 +36,12 @@ public class Main {
 			printGrid.printGrid(grid);
 			
 		} else if (response.equals("a*euc")) {
-			
-		} else if (response.equals("a*man")) {
-			
-		} else if (response.equals("a*")) {
-			grid = Astar.Astar(grid,node);
+			grid = AstarEuclideanDist.AstarEuc(grid, node);
 			printGrid.printGrid(grid);
 			
-			System.out.println(Astar.getGofN(grid[0][0], grid[2][2]));
+		} else if (response.equals("a*man")) {
+			grid = AstarManhattanDist.AstarMan(grid, node);
+			printGrid.printGrid(grid);
 			
 		} else {
 			System.out.println("booo");

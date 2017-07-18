@@ -12,7 +12,7 @@ public class BFSgraph {
 	public static Node[][] BFSsearch(Node[][] grid, Node node) {
 		
 		if (node.status.equals("G")) {
-			System.out.println("Goal found!!!");
+			System.out.println("Path found!!!");
 			return grid;
 		}
 		
@@ -34,10 +34,10 @@ public class BFSgraph {
 		//get this node's neighbors and add to stack
 		int x = node.first;
 		int y = node.second;
-		Node newNeighbor = new Node(0,0,"0");
-		Node newNeighbor2 = new Node(0,0,"0");
-		Node newNeighbor3 = new Node(0,0,"0");
-		Node newNeighbor4 = new Node(0,0,"0");
+		Node newNeighbor = new Node(0,0,"0",0);
+		Node newNeighbor2 = new Node(0,0,"0",0);
+		Node newNeighbor3 = new Node(0,0,"0",0);
+		Node newNeighbor4 = new Node(0,0,"0",0);
 		Object object = new Object();
 		
 		object = y-1;
@@ -47,7 +47,7 @@ public class BFSgraph {
 					newNeighbor.first = x;
 					newNeighbor.second = (int)object;
 					newNeighbor.status = grid[x][(int)object].status;
-					if (contains(queue,newNeighbor) == false) {
+					if (Contains.contains(queue,newNeighbor) == false) {
 						queue.add(newNeighbor);
 						/*System.out.println("left is a neighbor. " + newNeighbor.first + "" + newNeighbor.second + "," + newNeighbor.status + " has been added to the queue");
 						
@@ -66,7 +66,7 @@ public class BFSgraph {
 					newNeighbor3.first = (int)object;
 					newNeighbor3.second = y;
 					newNeighbor3.status = grid[(int)object][y].status;
-					if (contains(queue,newNeighbor3) == false) {
+					if (Contains.contains(queue,newNeighbor3) == false) {
 						queue.add(newNeighbor3);
 						/*System.out.println("top is a neighbor. " + newNeighbor3.first + "" + newNeighbor3.second + "," + newNeighbor.status + " has been added to the queue ");
 					
@@ -85,7 +85,7 @@ public class BFSgraph {
 					newNeighbor2.first = x;
 					newNeighbor2.second = (int)object;
 					newNeighbor2.status = grid[x][(int)object].status;
-					if (contains(queue,newNeighbor2) == false) {
+					if (Contains.contains(queue,newNeighbor2) == false) {
 						queue.add(newNeighbor2);
 						/*System.out.println("right is a neighbor. " + newNeighbor2.first + "" + newNeighbor2.second + "," + newNeighbor.status + " has been added to the queue");
 					
@@ -104,7 +104,7 @@ public class BFSgraph {
 					newNeighbor4.first = (int)object;
 					newNeighbor4.second = y;
 					newNeighbor4.status = grid[(int)object][y].status;
-					if (contains(queue,newNeighbor4) == false) {
+					if (Contains.contains(queue,newNeighbor4) == false) {
 						queue.add(newNeighbor4);
 						/*System.out.println("bottom is a neighbor. " + newNeighbor4.first + "" + newNeighbor4.second + "," + newNeighbor.status + " has been added to the queue: ");
 					
@@ -123,6 +123,9 @@ public class BFSgraph {
 		}
 		
 		System.out.println();*/
+		if (queue.size() == 0) {
+			System.out.println("Path not found!!!");
+		} 
 		
 		//pop queue and call bfs on node
 		for (int i = 0; i < queue.size(); i++) {
@@ -135,22 +138,5 @@ public class BFSgraph {
 		}
 		
 		return grid;
-	}
-	
-	public static boolean contains(ArrayList<Node> queue, Node node) {
-		
-		boolean bool = false;
-		
-		for (int i = 0; i < queue.size(); i++) {
-			if (queue.get(i).first == node.first) {
-				if (queue.get(i).second == node.second) {
-					if (queue.get(i).status.equals(node.status)) {
-						bool = true;
-						return bool;
-					}
-				}
-			}
-		}
-		return false;
 	}
 }
