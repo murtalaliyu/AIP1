@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Neighbors {
 
-	//get this node's neighbors and add to stack
+	//get this node's neighbors and add to queue (stack not functional)
 	static int x = 0;
 	static int y = 0;
 	static Object object = new Object();
@@ -36,7 +36,7 @@ public class Neighbors {
 						queue.add(newNeighbor);
 						
 						//print content of queue after adding neighbor
-						printContentOfQueue(queue, node, "left");
+						//printContentOfQueue(queue, node, "left");
 					}
 				}
 			}
@@ -73,7 +73,7 @@ public class Neighbors {
 						queue.add(newNeighbor3);
 						
 						//print content of queue after adding neighbor
-						printContentOfQueue(queue, node, "top");
+						//printContentOfQueue(queue, node, "top");
 					}
 				}
 			}
@@ -110,7 +110,7 @@ public class Neighbors {
 						queue.add(newNeighbor2);
 						
 						//print content of queue after adding neighbor
-						printContentOfQueue(queue, node, "right");
+						//printContentOfQueue(queue, node, "right");
 					}
 				}
 			}
@@ -147,7 +147,7 @@ public class Neighbors {
 						queue.add(newNeighbor4);
 						
 						//print content of queue after adding neighbor
-						printContentOfQueue(queue, node, "bottom");
+						//printContentOfQueue(queue, node, "bottom");
 					}
 				}
 			}

@@ -19,24 +19,24 @@ public class BFSgraph {
 			grid[node.first][node.second].status = "1";
 		}
 		
-		System.out.println();
-		System.out.println();
+		//System.out.println();
+		//System.out.println();
 		
 		//print updated path
-		System.out.println(grid[node.first][node.second].first + "" + grid[node.first][node.second].second + "," + grid[node.first][node.second].status + " has been added to the path. now searching for its neighbors");
-		printGrid.printGrid(grid);
+		//System.out.println(grid[node.first][node.second].first + "" + grid[node.first][node.second].second + "," + grid[node.first][node.second].status + " has been added to the path. now searching for its neighbors");
+		//printGrid.printGrid(grid);
 		
 		//get this node's neighbors and add to stack
-		queue = Neighbors.findBottomNeighbor(grid, queue, node);
 		queue = Neighbors.findRightNeighbor(grid, queue, node);
+		queue = Neighbors.findBottomNeighbor(grid, queue, node);
 		queue = Neighbors.findTopNeighbor(grid, queue, node);
 		queue = Neighbors.findLeftNeighbor(grid, queue, node);
 		
 		//print queue after iteration i
-		System.out.println("content of queue after checking for each neighbor:");
-		Neighbors.printContentOfQueue(queue, node, "THIS IS THE END OF ADDING NEIGHBORS TO QUEUE");
+		//System.out.println("content of queue after checking for each neighbor:");
+		//Neighbors.printContentOfQueue(queue, node, "THIS IS THE END OF ADDING NEIGHBORS TO QUEUE");
 		
-		System.out.println();
+		//System.out.println();
 		
 		//check if there's no path
 		if (queue.size() == 0 || "G".equals(node.status)) {

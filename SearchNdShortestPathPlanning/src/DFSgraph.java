@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Stack;
 
 public class DFSgraph {
 
@@ -31,8 +32,46 @@ public class DFSgraph {
 		Node newNeighbor2 = new Node(0,0,"0",0,0);
 		Node newNeighbor3 = new Node(0,0,"0",0,0);
 		Node newNeighbor4 = new Node(0,0,"0",0,0);
-		Object object = new Object();
 		
+		//get neighbors and add to stack
+		Object object = new Object();
+		//right
+				object = y+1;
+				if (object instanceof Integer == true) {
+					if ((int)object != grid.length) {
+						if (grid[x][(int)object].status.equals("0") || grid[x][(int)object].status.equals("G") || grid[(int)object][y].status.equals("S")) {
+							newNeighbor2.first = x;
+							newNeighbor2.second = (int)object;
+							newNeighbor2.status = grid[x][(int)object].status;
+							stack.push(newNeighbor2);
+							/*System.out.println("right is a neighbor. " + newNeighbor2.first + "," + newNeighbor2.second + " has been pushed to stack, now first to be popped: ");
+						
+							System.out.println("content of stack");
+							for (int i = 0; i < stack.size(); i++) {
+								System.out.println(stack.get(i).first + "," + stack.get(i).second);
+							}*/
+						}
+					}
+				}
+				//bottom
+				object = x+1;
+				if (object instanceof Integer == true) {
+					if ((int)object != grid.length) {
+						if (grid[(int)object][y].status.equals("0") || grid[(int)object][y].status.equals("G") || grid[(int)object][y].status.equals("S")) {
+							newNeighbor4.first = (int)object;
+							newNeighbor4.second = y;
+							newNeighbor4.status = grid[(int)object][y].status;
+							stack.push(newNeighbor4);
+							/*System.out.println("bottom is a neighbor. " + newNeighbor4.first + "," + newNeighbor4.second + " has been pushed to stack, now first to be popped: ");
+						
+							System.out.println("content of stack");
+							for (int i = 0; i < stack.size(); i++) {
+								System.out.println(stack.get(i).first + "," + stack.get(i).second);
+							}*/
+						}
+					}
+				}
+		//left
 		object = y-1;
 		if (object instanceof Integer) {
 			if ((int)object != -1) {
@@ -50,6 +89,7 @@ public class DFSgraph {
 				}
 			}
 		} 
+		//top
 		object = x-1;
 		if (object instanceof Integer == true) {
 			if ((int)object != -1) { 
@@ -67,40 +107,7 @@ public class DFSgraph {
 				}
 			}
 		}
-		object = y+1;
-		if (object instanceof Integer == true) {
-			if ((int)object != grid.length) {
-				if (grid[x][(int)object].status.equals("0") || grid[x][(int)object].status.equals("G") || grid[(int)object][y].status.equals("S")) {
-					newNeighbor2.first = x;
-					newNeighbor2.second = (int)object;
-					newNeighbor2.status = grid[x][(int)object].status;
-					stack.push(newNeighbor2);
-					/*System.out.println("right is a neighbor. " + newNeighbor2.first + "," + newNeighbor2.second + " has been pushed to stack, now first to be popped: ");
-				
-					System.out.println("content of stack");
-					for (int i = 0; i < stack.size(); i++) {
-						System.out.println(stack.get(i).first + "," + stack.get(i).second);
-					}*/
-				}
-			}
-		}
-		object = x+1;
-		if (object instanceof Integer == true) {
-			if ((int)object != grid.length) {
-				if (grid[(int)object][y].status.equals("0") || grid[(int)object][y].status.equals("G") || grid[(int)object][y].status.equals("S")) {
-					newNeighbor4.first = (int)object;
-					newNeighbor4.second = y;
-					newNeighbor4.status = grid[(int)object][y].status;
-					stack.push(newNeighbor4);
-					/*System.out.println("bottom is a neighbor. " + newNeighbor4.first + "," + newNeighbor4.second + " has been pushed to stack, now first to be popped: ");
-				
-					System.out.println("content of stack");
-					for (int i = 0; i < stack.size(); i++) {
-						System.out.println(stack.get(i).first + "," + stack.get(i).second);
-					}*/
-				}
-			}
-		}
+		
 		
 		/*System.out.println("content of stack after checking for each neighbor:");
 		for (int i = 0; i < stack.size(); i++) {
