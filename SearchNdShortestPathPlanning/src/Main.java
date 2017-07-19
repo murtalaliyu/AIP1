@@ -1,29 +1,31 @@
-/* Errors
- * 
- */
-
 import java.util.Scanner;
 
 public class Main {
 	
+	static String response = "";
+	
 	public static void main(String[] args) {
 		
+		//get size of grid
 		Scanner input = new Scanner(System.in);
 		int answer = 0;
 		System.out.println("Enter size of grid... (INTEGERS ONLY!!!)");
 		answer = input.nextInt();
 				
+		//initialize grid variable
 		Node[][] grid = new Node[answer][answer];
 		Grid.makeGrid(grid);
 		
 		System.out.println();
 		
+		//get probability of a cell getting blocked
 		System.out.println("Now, enter a p value... (0.0 < p < 1.0)");
 		double ans = input.nextDouble();
 		grid = ProbBlockedCell.blockCells(grid, ans);
 		
+		//choose a VALID search method
 		System.out.println("Choose a search method...   (dfs, bfs, a*, a*euc, a*man)");
-		String response = input.next();
+		response = input.next();
 	
 		Node node = new Node(grid[0][0].first, grid[0][0].second, grid[0][0].status, 0,0);
 		

@@ -13,8 +13,9 @@ public class DFSgraph {
 		}
 		
 		visited.add(node);
-		grid[node.first][node.second].status = "1";
-		
+		if (!("S".equals(node.status))) {
+			grid[node.first][node.second].status = "1";
+		}
 		/*System.out.println();
 		System.out.println();
 		//print updated path
@@ -35,7 +36,7 @@ public class DFSgraph {
 		object = y-1;
 		if (object instanceof Integer) {
 			if ((int)object != -1) {
-				if (grid[x][(int)object].status.equals("0") || grid[x][(int)object].status.equals("G")) {
+				if (grid[x][(int)object].status.equals("0") || grid[x][(int)object].status.equals("G") || grid[(int)object][y].status.equals("S")) {
 					newNeighbor.first = x;
 					newNeighbor.second = (int)object;
 					newNeighbor.status = grid[x][(int)object].status;
@@ -52,7 +53,7 @@ public class DFSgraph {
 		object = x-1;
 		if (object instanceof Integer == true) {
 			if ((int)object != -1) { 
-				if (grid[(int)object][y].status.equals("0") || grid[(int)object][y].status.equals("G")) {
+				if (grid[(int)object][y].status.equals("0") || grid[(int)object][y].status.equals("G") || grid[(int)object][y].status.equals("S")) {
 					newNeighbor3.first = (int)object;
 					newNeighbor3.second = y;
 					newNeighbor3.status = grid[(int)object][y].status;
@@ -69,7 +70,7 @@ public class DFSgraph {
 		object = y+1;
 		if (object instanceof Integer == true) {
 			if ((int)object != grid.length) {
-				if (grid[x][(int)object].status.equals("0") || grid[x][(int)object].status.equals("G")) {
+				if (grid[x][(int)object].status.equals("0") || grid[x][(int)object].status.equals("G") || grid[(int)object][y].status.equals("S")) {
 					newNeighbor2.first = x;
 					newNeighbor2.second = (int)object;
 					newNeighbor2.status = grid[x][(int)object].status;
@@ -86,7 +87,7 @@ public class DFSgraph {
 		object = x+1;
 		if (object instanceof Integer == true) {
 			if ((int)object != grid.length) {
-				if (grid[(int)object][y].status.equals("0") || grid[(int)object][y].status.equals("G")) {
+				if (grid[(int)object][y].status.equals("0") || grid[(int)object][y].status.equals("G") || grid[(int)object][y].status.equals("S")) {
 					newNeighbor4.first = (int)object;
 					newNeighbor4.second = y;
 					newNeighbor4.status = grid[(int)object][y].status;

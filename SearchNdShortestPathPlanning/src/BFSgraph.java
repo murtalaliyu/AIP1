@@ -1,7 +1,3 @@
-/*
- * 1. stackOverflow error when size of grid > 60
- */
-
 import java.util.ArrayList;
 
 public class BFSgraph {
@@ -11,130 +7,46 @@ public class BFSgraph {
 
 	public static Node[][] BFSsearch(Node[][] grid, Node node) {
 		
+		//base case
 		if (node.status.equals("G")) {
 			System.out.println("Path found!!!");
 			return grid;
 		}
 		
+		//add node to visited list
 		visited.add(node);
-		grid[node.first][node.second].status = "1";
+		if (!("S".equals(node.status))) {
+			grid[node.first][node.second].status = "1";
+		}
 		
-		/*System.out.println();
 		System.out.println();
+		System.out.println();
+		
 		//print updated path
 		System.out.println(grid[node.first][node.second].first + "" + grid[node.first][node.second].second + "," + grid[node.first][node.second].status + " has been added to the path. now searching for its neighbors");
-		System.out.println("updated path:");
-		for (int i = 0; i < grid.length; i++) { 
-			for (int j = 0; j < grid.length; j++) {
-				System.out.print(grid[i][j].status + "   ");
-			}
-			System.out.println();
-		}*/
+		printGrid.printGrid(grid);
 		
 		//get this node's neighbors and add to stack
-		int x = node.first;
-		int y = node.second;
-		Node newNeighbor = new Node(0,0,"0",0,0);
-		Node newNeighbor2 = new Node(0,0,"0",0,0);
-		Node newNeighbor3 = new Node(0,0,"0",0,0);
-		Node newNeighbor4 = new Node(0,0,"0",0,0);
-		Object object = new Object();
+		queue = Neighbors.findBottomNeighbor(grid, queue, node);
+		queue = Neighbors.findRightNeighbor(grid, queue, node);
+		queue = Neighbors.findTopNeighbor(grid, queue, node);
+		queue = Neighbors.findLeftNeighbor(grid, queue, node);
 		
-		object = y-1;
-		if (object instanceof Integer) {
-			if ((int)object != -1) {
-				if (grid[x][(int)object].status.equals("0") || grid[x][(int)object].status.equals("G")) {
-					newNeighbor.first = x;
-					newNeighbor.second = (int)object;
-					newNeighbor.status = grid[x][(int)object].status;
-					if (Contains.contains(queue,newNeighbor) == false) {
-						queue.add(newNeighbor);
-						/*System.out.println("left is a neighbor. " + newNeighbor.first + "" + newNeighbor.second + "," + newNeighbor.status + " has been added to the queue");
-						
-						System.out.println("content of queue");
-						for (int i = 0; i < queue.size(); i++) {
-							System.out.println(queue.get(i).first + "" +  queue.get(i).second + "," + queue.get(i).status);
-						}*/
-					}
-				}
-			}
-		} 
-		object = x-1;
-		if (object instanceof Integer == true) {
-			if ((int)object != -1) { 
-				if (grid[(int)object][y].status.equals("0") || grid[(int)object][y].status.equals("G")) {
-					newNeighbor3.first = (int)object;
-					newNeighbor3.second = y;
-					newNeighbor3.status = grid[(int)object][y].status;
-					if (Contains.contains(queue,newNeighbor3) == false) {
-						queue.add(newNeighbor3);
-						/*System.out.println("top is a neighbor. " + newNeighbor3.first + "" + newNeighbor3.second + "," + newNeighbor.status + " has been added to the queue ");
-					
-						System.out.println("content of queue");
-						for (int i = 0; i < queue.size(); i++) {
-							System.out.println(queue.get(i).first + "" + queue.get(i).second + "," + queue.get(i).status);
-						}*/
-					}
-				}
-			}
-		}
-		object = y+1;
-		if (object instanceof Integer == true) {
-			if ((int)object != grid.length) {
-				if (grid[x][(int)object].status.equals("0") || grid[x][(int)object].status.equals("G")) {
-					newNeighbor2.first = x;
-					newNeighbor2.second = (int)object;
-					newNeighbor2.status = grid[x][(int)object].status;
-					if (Contains.contains(queue,newNeighbor2) == false) {
-						queue.add(newNeighbor2);
-						/*System.out.println("right is a neighbor. " + newNeighbor2.first + "" + newNeighbor2.second + "," + newNeighbor.status + " has been added to the queue");
-					
-						System.out.println("content of queue");
-						for (int i = 0; i < queue.size(); i++) {
-							System.out.println(queue.get(i).first + "" + queue.get(i).second + "," + queue.get(i).status);
-						}*/
-					}
-				}
-			}
-		}
-		object = x+1;
-		if (object instanceof Integer == true) {
-			if ((int)object != grid.length) {
-				if (grid[(int)object][y].status.equals("0") || grid[(int)object][y].status.equals("G")) {
-					newNeighbor4.first = (int)object;
-					newNeighbor4.second = y;
-					newNeighbor4.status = grid[(int)object][y].status;
-					if (Contains.contains(queue,newNeighbor4) == false) {
-						queue.add(newNeighbor4);
-						/*System.out.println("bottom is a neighbor. " + newNeighbor4.first + "" + newNeighbor4.second + "," + newNeighbor.status + " has been added to the queue: ");
-					
-						System.out.println("content of queue");
-						for (int i = 0; i < queue.size(); i++) {
-							System.out.println(queue.get(i).first + "" + queue.get(i).second + "," + queue.get(i).status);
-						}*/
-					}
-				}
-			}
-		}
+		//print queue after iteration i
+		System.out.println("content of queue after checking for each neighbor:");
+		Neighbors.printContentOfQueue(queue, node, "THIS IS THE END OF ADDING NEIGHBORS TO QUEUE");
 		
-		/*System.out.println("content of queue after checking for each neighbor:");
-		for (int i = 0; i < queue.size(); i++) {
-			System.out.println(queue.get(i).first + "" + queue.get(i).second + "," + queue.get(i).status);
-		}
+		System.out.println();
 		
-		System.out.println();*/
-		if (queue.size() == 0) {
+		//check if there's no path
+		if (queue.size() == 0 || "G".equals(node.status)) {
 			System.out.println("Path not found!!!");
+			return grid;
 		} 
 		
-		//pop queue and call bfs on node
+		//pop queue and recall bfs while queue is not empty
 		for (int i = 0; i < queue.size(); i++) {
-			/*if (queue.get(i).status.equals(("G"))) { // POSSIBLE ERROR HERE
-				System.out.println("Goal found!!!");
-				return grid;
-			}
-			System.out.println(queue.get(i).first + "" + queue.get(i).second + "," + queue.get(i).status + " is about to be dequeued");*/
-			grid = BFSsearch(grid,queue.remove(0)); //POSSIBLE ERROR HERE
+			grid = BFSsearch(grid,queue.remove(0));
 		}
 		
 		return grid;
