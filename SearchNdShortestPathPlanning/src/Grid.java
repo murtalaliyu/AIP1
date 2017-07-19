@@ -21,15 +21,14 @@ public class Grid {
 					node.FofN = 0;
 					node.GofN = 0;
 					grid[i][j] = node;
-                }
-				else {	
-				node = new Node(0,0,"0",0,0);
-				node.first = i;
-				node.second = j;
-				node.status = "0";
-				node.FofN = 0;
-				node.GofN = 0;
-				grid[i][j] = node;
+                } else {	
+					node = new Node(0,0,"0",0,0);
+					node.first = i;
+					node.second = j;
+					node.status = "0";
+					node.FofN = 0;
+					node.GofN = 0;
+					grid[i][j] = node;
 				}
 			}
 		}
