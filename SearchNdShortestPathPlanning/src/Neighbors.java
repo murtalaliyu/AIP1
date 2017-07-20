@@ -1,6 +1,8 @@
 import java.util.*;
 
 public class Neighbors {
+	
+	static int nodesExpanded = 0;
 
 	//get this node's neighbors and add to queue (stack not functional)
 	static int x = 0;
@@ -30,11 +32,28 @@ public class Neighbors {
 							newNeighbor.GofN = newNeighbor.GofN + 1;
 							gOfn = newNeighbor.GofN;
 							hOfn = AstarManhattanDist.getHeuristic(newNeighbor, grid[grid.length-1][grid.length-1]);
+						} else if ("a*max".equals(Main.response)) {
+							newNeighbor.GofN = newNeighbor.GofN + 1;
+							gOfn = newNeighbor.GofN;
+							hOfn = Questions.maxDistance(newNeighbor, grid[grid.length-1][grid.length-1]);
+						} else if ("a*min".equals(Main.response)) {
+							newNeighbor.GofN = newNeighbor.GofN + 1;
+							gOfn = newNeighbor.GofN;
+							hOfn = Questions.minDistance(newNeighbor, grid[grid.length-1][grid.length-1]);
+						} else if ("a*alphaWeightedCombination".equals(Main.response)) {
+							newNeighbor.GofN = newNeighbor.GofN + 1;
+							gOfn = newNeighbor.GofN;
+							hOfn = Questions.alphaWeightedCombination(newNeighbor, grid[grid.length-1][grid.length-1], Main.alpha);
+						} else if ("a*betaNormDistance".equals(Main.response)) {
+							newNeighbor.GofN = newNeighbor.GofN + 1;
+							gOfn = newNeighbor.GofN;
+							hOfn = Questions.betaNormDistance(newNeighbor, grid[grid.length-1][grid.length-1], Main.beta);
 						}
 						fOfn = Astar.getFofN(gOfn, hOfn);
 						newNeighbor.FofN = fOfn;
 						queue.add(newNeighbor);
 						
+						nodesExpanded += 1;
 						//print content of queue after adding neighbor
 						//printContentOfQueue(queue, node, "left");
 					}
@@ -67,11 +86,28 @@ public class Neighbors {
 							newNeighbor3.GofN = newNeighbor3.GofN + 1;
 							gOfn = newNeighbor3.GofN;
 							hOfn = AstarManhattanDist.getHeuristic(newNeighbor3, grid[grid.length-1][grid.length-1]);
+						} else if ("a*max".equals(Main.response)) {
+							newNeighbor3.GofN = newNeighbor3.GofN + 1;
+							gOfn = newNeighbor3.GofN;
+							hOfn = Questions.maxDistance(newNeighbor3, grid[grid.length-1][grid.length-1]);
+						} else if ("a*min".equals(Main.response)) {
+							newNeighbor3.GofN = newNeighbor3.GofN + 1;
+							gOfn = newNeighbor3.GofN;
+							hOfn = Questions.minDistance(newNeighbor3, grid[grid.length-1][grid.length-1]);
+						} else if ("a*alphaWeightedCombination".equals(Main.response)) {
+							newNeighbor3.GofN = newNeighbor3.GofN + 1;
+							gOfn = newNeighbor3.GofN;
+							hOfn = Questions.alphaWeightedCombination(newNeighbor3, grid[grid.length-1][grid.length-1], Main.alpha);
+						} else if ("a*betaNormDistance".equals(Main.response)) {
+							newNeighbor3.GofN = newNeighbor3.GofN + 1;
+							gOfn = newNeighbor3.GofN;
+							hOfn = Questions.betaNormDistance(newNeighbor3, grid[grid.length-1][grid.length-1], Main.beta);
 						}
 						fOfn = Astar.getFofN(gOfn, hOfn);
 						newNeighbor3.FofN = fOfn;
 						queue.add(newNeighbor3);
-						
+
+						nodesExpanded += 1;
 						//print content of queue after adding neighbor
 						//printContentOfQueue(queue, node, "top");
 					}
@@ -104,11 +140,28 @@ public class Neighbors {
 							newNeighbor2.GofN = newNeighbor2.GofN + 1;
 							gOfn = newNeighbor2.GofN;
 							hOfn = AstarManhattanDist.getHeuristic(newNeighbor2, grid[grid.length-1][grid.length-1]);
+						} else if ("a*max".equals(Main.response)) {
+							newNeighbor2.GofN = newNeighbor2.GofN + 1;
+							gOfn = newNeighbor2.GofN;
+							hOfn = Questions.maxDistance(newNeighbor2, grid[grid.length-1][grid.length-1]);
+						} else if ("a*min".equals(Main.response)) {
+							newNeighbor2.GofN = newNeighbor2.GofN + 1;
+							gOfn = newNeighbor2.GofN;
+							hOfn = Questions.minDistance(newNeighbor2, grid[grid.length-1][grid.length-1]);
+						} else if ("a*alphaWeightedCombination".equals(Main.response)) {
+							newNeighbor2.GofN = newNeighbor2.GofN + 1;
+							gOfn = newNeighbor2.GofN;
+							hOfn = Questions.alphaWeightedCombination(newNeighbor2, grid[grid.length-1][grid.length-1], Main.alpha);
+						} else if ("a*betaNormDistance".equals(Main.response)) {
+							newNeighbor2.GofN = newNeighbor2.GofN + 1;
+							gOfn = newNeighbor2.GofN;
+							hOfn = Questions.betaNormDistance(newNeighbor2, grid[grid.length-1][grid.length-1], Main.beta);
 						}
 						fOfn = Astar.getFofN(gOfn, hOfn);
 						newNeighbor2.FofN = fOfn;
 						queue.add(newNeighbor2);
-						
+
+						nodesExpanded += 1;
 						//print content of queue after adding neighbor
 						//printContentOfQueue(queue, node, "right");
 					}
@@ -141,11 +194,28 @@ public class Neighbors {
 							newNeighbor4.GofN = newNeighbor4.GofN + 1;
 							gOfn = newNeighbor4.GofN;
 							hOfn = AstarManhattanDist.getHeuristic(newNeighbor4, grid[grid.length-1][grid.length-1]);
+						} else if ("a*max".equals(Main.response)) {
+							newNeighbor4.GofN = newNeighbor4.GofN + 1;
+							gOfn = newNeighbor4.GofN;
+							hOfn = Questions.maxDistance(newNeighbor4, grid[grid.length-1][grid.length-1]);
+						} else if ("a*min".equals(Main.response)) {
+							newNeighbor4.GofN = newNeighbor4.GofN + 1;
+							gOfn = newNeighbor4.GofN;
+							hOfn = Questions.minDistance(newNeighbor4, grid[grid.length-1][grid.length-1]);
+						} else if ("a*alphaWeightedCombination".equals(Main.response)) {
+							newNeighbor4.GofN = newNeighbor4.GofN + 1;
+							gOfn = newNeighbor4.GofN;
+							hOfn = Questions.alphaWeightedCombination(newNeighbor4, grid[grid.length-1][grid.length-1], Main.alpha);
+						} else if ("a*betaNormDistance".equals(Main.response)) {
+							newNeighbor4.GofN = newNeighbor4.GofN + 1;
+							gOfn = newNeighbor4.GofN;
+							hOfn = Questions.betaNormDistance(newNeighbor4, grid[grid.length-1][grid.length-1], Main.beta);
 						}
 						fOfn = Astar.getFofN(gOfn, hOfn);
 						newNeighbor4.FofN = fOfn;
 						queue.add(newNeighbor4);
-						
+
+						nodesExpanded += 1;
 						//print content of queue after adding neighbor
 						//printContentOfQueue(queue, node, "bottom");
 					}
@@ -161,7 +231,17 @@ public class Neighbors {
 	
 		System.out.println("size of queue: " + queue.size());
 		for (int i = 0; i < queue.size(); i++) {
-			System.out.println(queue.get(i).first + "" +  queue.get(i).second + "," + queue.get(i).status);
+			System.out.println(queue.get(i).first + "," +  queue.get(i).second + "," + queue.get(i).status);
+		}
+	}
+	
+	public static void printContentOfStack(Stack<Node> stack) {
+		
+		System.out.println();
+		
+		System.out.println("size of stack: " + stack.size());
+		for (int i = 0; i < stack.size(); i++) {
+			System.out.println(stack.get(i).first + "," + stack.get(i).second + "," + stack.get(i).status);
 		}
 	}
 }

@@ -38,7 +38,7 @@ public class AstarEuclideanDist {
 		
 		//System.out.println();
 		
-		//find the newNode with the smallest FofN value
+		//find and pick the newNode with the smallest FofN value in the queue
 		Node newNode = new Node(0,0,"0",1000,0);
 		int temp = 0;
 		for (int j = 0; j < queue.size(); j++) {  

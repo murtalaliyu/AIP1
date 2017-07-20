@@ -38,7 +38,7 @@ public class AstarManhattanDist {
 		
 		//System.out.println();
 		
-		//find the newNode with the smallest FofN value
+		//find and pick the newNode with the smallest FofN value in the queue
 		int temp = 0;
 		Node newNode = new Node(0,0,"0",1000,0);
 		for (int j = 0; j < queue.size(); j++) {  

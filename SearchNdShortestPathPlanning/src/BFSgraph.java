@@ -39,7 +39,7 @@ public class BFSgraph {
 		//System.out.println();
 		
 		//check if there's no path
-		if (queue.size() == 0 || "G".equals(node.status)) {
+		if (queue.size() == 0) {
 			System.out.println("Path not found!!!");
 			return grid;
 		} 
