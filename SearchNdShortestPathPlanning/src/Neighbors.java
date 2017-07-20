@@ -27,11 +27,11 @@ public class Neighbors {
 						if ("a*euc".equals(Main.response)) {
 							newNeighbor.GofN = newNeighbor.GofN + 1;
 							gOfn = newNeighbor.GofN;
-							hOfn = AstarEuclideanDist.getHeuristic(newNeighbor, grid[grid.length-1][grid.length-1]);
+							hOfn = AstarAlgorithm.getEuclideanHofN(newNeighbor, grid[grid.length-1][grid.length-1]);
 						} else if ("a*man".equals(Main.response)) {
 							newNeighbor.GofN = newNeighbor.GofN + 1;
 							gOfn = newNeighbor.GofN;
-							hOfn = AstarManhattanDist.getHeuristic(newNeighbor, grid[grid.length-1][grid.length-1]);
+							hOfn = AstarAlgorithm.getManhattanHofN(newNeighbor, grid[grid.length-1][grid.length-1]);
 						} else if ("a*max".equals(Main.response)) {
 							newNeighbor.GofN = newNeighbor.GofN + 1;
 							gOfn = newNeighbor.GofN;
@@ -81,11 +81,11 @@ public class Neighbors {
 						if ("a*euc".equals(Main.response)) {
 							newNeighbor3.GofN = newNeighbor3.GofN + 1;
 							gOfn = newNeighbor3.GofN;
-							hOfn = AstarEuclideanDist.getHeuristic(newNeighbor3, grid[grid.length-1][grid.length-1]);
+							hOfn = AstarAlgorithm.getEuclideanHofN(newNeighbor3, grid[grid.length-1][grid.length-1]);
 						} else if ("a*man".equals(Main.response)) {
 							newNeighbor3.GofN = newNeighbor3.GofN + 1;
 							gOfn = newNeighbor3.GofN;
-							hOfn = AstarManhattanDist.getHeuristic(newNeighbor3, grid[grid.length-1][grid.length-1]);
+							hOfn = AstarAlgorithm.getManhattanHofN(newNeighbor3, grid[grid.length-1][grid.length-1]);
 						} else if ("a*max".equals(Main.response)) {
 							newNeighbor3.GofN = newNeighbor3.GofN + 1;
 							gOfn = newNeighbor3.GofN;
@@ -135,11 +135,11 @@ public class Neighbors {
 						if ("a*euc".equals(Main.response)) {
 							newNeighbor2.GofN = newNeighbor2.GofN + 1;
 							gOfn = newNeighbor2.GofN;
-							hOfn = AstarEuclideanDist.getHeuristic(newNeighbor2, grid[grid.length-1][grid.length-1]);
+							hOfn = AstarAlgorithm.getEuclideanHofN(newNeighbor2, grid[grid.length-1][grid.length-1]);
 						} else if ("a*man".equals(Main.response)) {
 							newNeighbor2.GofN = newNeighbor2.GofN + 1;
 							gOfn = newNeighbor2.GofN;
-							hOfn = AstarManhattanDist.getHeuristic(newNeighbor2, grid[grid.length-1][grid.length-1]);
+							hOfn = AstarAlgorithm.getManhattanHofN(newNeighbor2, grid[grid.length-1][grid.length-1]);
 						} else if ("a*max".equals(Main.response)) {
 							newNeighbor2.GofN = newNeighbor2.GofN + 1;
 							gOfn = newNeighbor2.GofN;
@@ -189,11 +189,11 @@ public class Neighbors {
 						if ("a*euc".equals(Main.response)) {
 							newNeighbor4.GofN = newNeighbor4.GofN + 1;
 							gOfn = newNeighbor4.GofN;
-							hOfn = AstarEuclideanDist.getHeuristic(newNeighbor4, grid[grid.length-1][grid.length-1]);
+							hOfn = AstarAlgorithm.getEuclideanHofN(newNeighbor4, grid[grid.length-1][grid.length-1]);
 						} else if ("a*man".equals(Main.response)) {
 							newNeighbor4.GofN = newNeighbor4.GofN + 1;
 							gOfn = newNeighbor4.GofN;
-							hOfn = AstarManhattanDist.getHeuristic(newNeighbor4, grid[grid.length-1][grid.length-1]);
+							hOfn = AstarAlgorithm.getManhattanHofN(newNeighbor4, grid[grid.length-1][grid.length-1]);
 						} else if ("a*max".equals(Main.response)) {
 							newNeighbor4.GofN = newNeighbor4.GofN + 1;
 							gOfn = newNeighbor4.GofN;

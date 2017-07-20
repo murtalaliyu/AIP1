@@ -42,29 +42,29 @@ public class Main {
 			printGrid.printGrid(grid);
 			
 		} else if (response.equals("a*euc")) {
-			grid = AstarEuclideanDist.AstarEuc(grid, node);
+			grid = AstarAlgorithm.Start(grid, node);
 			printGrid.printGrid(grid);
 			System.out.println("Number of nodes expanded: " + Neighbors.nodesExpanded);
 			
 		} else if (response.equals("a*man")) {
-			grid = AstarManhattanDist.AstarMan(grid, node);
+			grid = AstarAlgorithm.Start(grid, node);
 			printGrid.printGrid(grid);
 			System.out.println("Number of nodes expanded: " + Neighbors.nodesExpanded);
 			
 		} else if (response.equals("a*max")) {
-			grid = AstarManhattanDist.AstarMan(grid, node);
+			grid = AstarAlgorithm.Start(grid, node);
 			printGrid.printGrid(grid);
 			System.out.println("Number of nodes expanded: " + Neighbors.nodesExpanded);
 			
 		} else if (response.equals("a*min")) {
-			grid = AstarManhattanDist.AstarMan(grid, node);
+			grid = AstarAlgorithm.Start(grid, node);
 			printGrid.printGrid(grid);
 			System.out.println("Number of nodes expanded: " + Neighbors.nodesExpanded);
 			
 		} else if (response.equals("a*alphaWeightedCombination")) {
 			System.out.println("Enter an alpha value... (0 < alpha < 1)");
 			alpha = input.nextDouble();
-			grid = AstarManhattanDist.AstarMan(grid, node);
+			grid = AstarAlgorithm.Start(grid, node);
 			printGrid.printGrid(grid);
 			System.out.println("Number of nodes expanded: " + Neighbors.nodesExpanded);
 			
@@ -72,7 +72,7 @@ public class Main {
 		} else if (response.equals("a*betaNormDistance")) {
 			System.out.println("Enter a beta value... (1 < beta < 2)");
 			beta = input.nextDouble();
-			grid = AstarManhattanDist.AstarMan(grid, node);
+			grid = AstarAlgorithm.Start(grid, node);
 			printGrid.printGrid(grid);
 			System.out.println("Number of nodes expanded: " + Neighbors.nodesExpanded);
 			
